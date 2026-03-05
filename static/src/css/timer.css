@@ -1,0 +1,11 @@
+.tat-badge {
+    font-size: 15px;
+    font-family: monospace;
+    font-weight: 600;
+}
+.tat-running { background:#28a745; color:#fff; box-shadow:0 2px 8px rgba(40,167,69,.3); }
+.tat-paused  { background:#fd7e14; color:#fff; }
+.tat-stopped { background:#dc3545; color:#fff; }
+
+@keyframes tat_blink { 0%,100%{opacity:1} 50%{opacity:.15} }
+.tat-blink { animation: tat_blink 1s infinite; }

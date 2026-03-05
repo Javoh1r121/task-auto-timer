@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_task_form_inherit_custom_timer" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.custom.timer</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="before">
+                <field name="timer_start"            invisible="1" />
+                <field name="timer_running"          invisible="1" />
+                <field name="timer_paused"           invisible="1" />
+                <field name="timer_accumulated"      invisible="1" />
+                <field name="total_duration"         invisible="1" />
+                <field name="awaiting_test_decision" invisible="1" />
+                <field name="test_timer_start"       invisible="1" />
+                <field name="test_timer_running"     invisible="1" />
+                <field name="test_timer_accumulated" invisible="1" />
+                <field name="test_labor_cost"        invisible="1" />
+                <field name="test_timer_sessions"    invisible="1" />
+                <field name="cto_hourly_wage"        invisible="1" />
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+
+                <!-- Test taymer display — faqat test stageda -->
+                <field name="test_timer_running"
+                       widget="test_timer_display"
+                       nolabel="1"
+                       invisible="not awaiting_test_decision" />
+
+                <!-- Asosiy ish taymeri -->
+                <field name="timer_running"
+                       widget="timer_display"
+                       nolabel="1" />
+
+                <!-- Test Start — faqat test stageda, taymer to'xtaganda -->
+                <button name="action_test_start"
+                        string="▶ Test Start"
+                        type="object"
+                        class="btn btn-info btn-sm fw-bold px-3"
+                        invisible="not awaiting_test_decision or test_timer_running" />
+
+                <!-- Test Stop — taymer yoniq bo'lsa -->
+                <button name="action_test_stop"
+                        string="⏹ Test Stop"
+                        type="object"
+                        class="btn btn-danger btn-sm fw-bold px-3"
+                        invisible="not test_timer_running" />
+
+                <!-- Tasdiqlash / Qaytarish — FAQAT test stageda -->
+                <button name="action_test_confirm"
+                        string="✓ Tasdiqlash"
+                        type="object"
+                        class="btn btn-success btn-sm fw-bold px-3 ms-2"
+                        invisible="not awaiting_test_decision" />
+
+                <button name="action_test_reject"
+                        string="↩ Ortga qaytarish"
+                        type="object"
+                        class="btn btn-danger btn-sm fw-bold px-3 ms-1"
+                        invisible="not awaiting_test_decision" />
+
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Taymer Tarixi" name="timer_history">
+                    <field name="timer_sessions"
+                           widget="timer_sessions_display"
+                           nolabel="1" />
+                </page>
+
+                <!-- Test tarixi — har doim ko'rinadi (sessiya bo'lmasa "boshlanmagan" xabari) -->
+                <page string="Test Taymer Tarixi" name="test_timer_history">
+                    <field name="test_timer_sessions"
+                           widget="test_timer_sessions_display"
+                           nolabel="1" />
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

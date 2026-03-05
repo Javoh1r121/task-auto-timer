@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; margin: 0; padding: 0; }
+        .banner { width: 100%; background: linear-gradient(135deg, #1a3c8f 0%, #3c1a6e 100%);
+                  padding: 40px 60px; color: white; }
+        .banner h1 { font-size: 36px; margin: 0 0 8px; }
+        .banner p  { font-size: 16px; margin: 0; opacity: 0.85; }
+        .section   { padding: 40px 60px; }
+        .section h2 { color: #1a3c8f; border-bottom: 2px solid #1a3c8f;
+                      padding-bottom: 8px; margin-bottom: 20px; }
+        .features  { display: flex; flex-wrap: wrap; gap: 20px; }
+        .feature   { flex: 1 1 260px; background: #f5f7ff; border-left: 4px solid #1a3c8f;
+                     border-radius: 4px; padding: 16px 20px; }
+        .feature h3 { margin: 0 0 8px; color: #1a3c8f; font-size: 15px; }
+        .feature p  { margin: 0; font-size: 13px; line-height: 1.6; }
+        .flow       { display: flex; flex-wrap: wrap; gap: 0; align-items: center; }
+        .step       { background: #1a3c8f; color: white; border-radius: 8px;
+                      padding: 12px 18px; font-size: 13px; text-align: center; min-width: 100px; }
+        .arrow      { font-size: 22px; color: #1a3c8f; padding: 0 8px; }
+        table       { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th          { background: #1a3c8f; color: white; padding: 10px 14px; text-align: left; }
+        td          { padding: 9px 14px; border-bottom: 1px solid #e5e5e5; }
+        tr:nth-child(even) td { background: #f5f7ff; }
+        .badge      { display: inline-block; background: #e8f0fe; color: #1a3c8f;
+                      border-radius: 12px; padding: 3px 10px; font-size: 12px; font-weight: bold; }
+        footer      { background: #f0f0f0; padding: 20px 60px; font-size: 12px; color: #888;
+                      text-align: center; }
+        footer a    { color: #1a3c8f; }
+    </style>
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+    <h1>⏱ Task Auto Timer + CRM Integration</h1>
+    <p>Automatic task timers, CTO test tracking, and detailed time reports — all configurable without code.</p>
+</div>
+
+<!-- Overview -->
+<div class="section">
+    <h2>Overview</h2>
+    <p>
+        <strong>Task Auto Timer</strong> automates time tracking in your project workflow.
+        When a task moves between stages, timers start, pause, or stop automatically.
+        A dedicated <strong>CTO Test Timer</strong> tracks time and labor cost for the testing stage separately.
+        All stage names, working hours, and the CTO job title are fully configurable from the UI — no coding required.
+    </p>
+</div>
+
+<!-- Features -->
+<div class="section" style="background:#fafbff;">
+    <h2>Key Features</h2>
+    <div class="features">
+        <div class="feature">
+            <h3>🔄 Automatic Stage-Based Timer</h3>
+            <p>Timer starts when task moves to <em>In Progress</em>, pauses on <em>Waiting</em>,
+               and saves session on <em>Test / Validation / Done</em>. No manual clicks needed.</p>
+        </div>
+        <div class="feature">
+            <h3>🧪 CTO Test Timer</h3>
+            <p>When a task enters the <em>Test</em> stage, the CTO is automatically added as assignee
+               and a separate test timer tracks their time and labor cost using <em>Hourly Cost</em>.</p>
+        </div>
+        <div class="feature">
+            <h3>📊 Task Timer Report</h3>
+            <p>View all tasks grouped by project. Shows hours spent, cost price per employee,
+               and sale price per project. CTO test time is reported separately.</p>
+        </div>
+        <div class="feature">
+            <h3>🔗 CRM → Project</h3>
+            <p>When a CRM opportunity reaches 100% probability (Won), create a linked project
+               with all stages pre-configured in one click.</p>
+        </div>
+        <div class="feature">
+            <h3>⚙️ Fully Configurable</h3>
+            <p>Set working hours, working days, stage names, and CTO job title from
+               <strong>Project → TAT Settings</strong> — no developer needed.</p>
+        </div>
+        <div class="feature">
+            <h3>📋 Session History</h3>
+            <p>Every timer session is saved with timestamp and duration.
+               Full timer history and test timer history are visible on each task.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Workflow -->
+<div class="section">
+    <h2>Workflow</h2>
+    <div class="flow">
+        <div class="step">📝 To Do</div>
+        <div class="arrow">→</div>
+        <div class="step">▶️ In Progress<br/><small>Timer starts</small></div>
+        <div class="arrow">→</div>
+        <div class="step">⏸ Waiting<br/><small>Timer pauses</small></div>
+        <div class="arrow">→</div>
+        <div class="step">🧪 Test<br/><small>CTO assigned<br/>Test timer</small></div>
+        <div class="arrow">→</div>
+        <div class="step">✅ Validation</div>
+        <div class="arrow">→</div>
+        <div class="step">🏁 Done</div>
+    </div>
+    <p style="margin-top:16px; font-size:13px; color:#666;">
+        If a test is rejected, the task returns to <strong>To Do</strong> and all timers reset for the new cycle.
+        Test session history is preserved across cycles.
+    </p>
+</div>
+
+<!-- Settings table -->
+<div class="section" style="background:#fafbff;">
+    <h2>Configurable Settings</h2>
+    <table>
+        <thead>
+            <tr><th>Setting</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Work Start Hour</td><td>9</td><td>Timer only counts hours after this time</td></tr>
+            <tr><td>Work End Hour</td><td>19</td><td>Timer only counts hours before this time</td></tr>
+            <tr><td>Work Days</td><td>0,1,2,3,4,5</td><td>Mon–Sat (0=Mon … 6=Sun)</td></tr>
+            <tr><td>CTO Job Title</td><td>CTO</td><td>Job Position name in Employees module</td></tr>
+            <tr><td>In Progress stage name</td><td>In Progress</td><td>Timer auto-starts</td></tr>
+            <tr><td>Waiting stage name</td><td>Waiting</td><td>Timer pauses</td></tr>
+            <tr><td>Test stage name</td><td>Test</td><td>CTO timer activates</td></tr>
+            <tr><td>To Do stage name</td><td>To Do</td><td>Reject returns task here</td></tr>
+            <tr><td>Validation stage name</td><td>Validation</td><td>Approve moves task here</td></tr>
+            <tr><td>Done stage name</td><td>Done</td><td>Final stage</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Requirements -->
+<div class="section">
+    <h2>Requirements</h2>
+    <p>
+        <span class="badge">Odoo 19</span>&nbsp;
+        <span class="badge">project</span>&nbsp;
+        <span class="badge">crm</span>&nbsp;
+        <span class="badge">hr (for Hourly Cost)</span>
+    </p>
+    <p style="font-size:13px; color:#666; margin-top:8px;">
+        The <strong>hr</strong> (Employees) module is needed to read the CTO's Hourly Cost field.
+        It is not listed as a hard dependency to keep the module lightweight —
+        if hr is not installed, labor cost will default to 0.
+    </p>
+</div>
+
+<footer>
+    Developed by <a href="https://www.sferaacademy.uz/" target="_blank">Sfera</a> &nbsp;|&nbsp;
+    Licensed under LGPL-3 &nbsp;|&nbsp;
+    <a href="https://www.sferaacademy.uz/" target="_blank">www.sferaacademy.uz</a>
+</footer>
+
+</body>
+</html>

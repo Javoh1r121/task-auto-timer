@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_crm_lead_form_inherit_create_project" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.create.project</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_create_project"
+                    string="Create Project"
+                    type="object"
+                    class="oe_highlight btn btn-success fw-bold px-4"
+                    invisible="probability &lt; 100 or project_created"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

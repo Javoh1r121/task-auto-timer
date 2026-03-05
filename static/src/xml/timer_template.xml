@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="task_auto_timer.TimerDisplay"><span/></t>
+    <t t-name="task_auto_timer.SessionsDisplay"><div/></t>
+</templates>

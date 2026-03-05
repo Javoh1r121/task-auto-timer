@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem
+        id="menu_tat_report"
+        name="Task Timer Report"
+        parent="project.menu_main_pm"
+        action="action_tat_report"
+        sequence="60"
+    />
+</odoo>

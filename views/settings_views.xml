@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TAT Settings — alohida action orqali ochiladi -->
+    <record id="view_tat_settings_form" model="ir.ui.view">
+        <field name="name">tat.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="arch" type="xml">
+            <form string="Task Auto Timer Settings" class="oe_form_configuration">
+                <header>
+                    <button string="Save" type="object" name="execute"
+                            class="btn-primary" data-hotkey="s"/>
+                    <button string="Discard" type="object" name="cancel"
+                            class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </header>
+                <sheet>
+                    <div class="app_settings_block">
+
+                        <h2>⏱ Task Auto Timer Sozlamalari</h2>
+
+                        <!-- Ish vaqti -->
+                        <h3>Ish vaqti</h3>
+                        <div class="row mt8 mb16">
+                            <div class="col-lg-4">
+                                <label for="tat_work_start" string="Boshlanish soati"/>
+                                <div class="text-muted" style="font-size:12px;">Masalan: 9 → 09:00</div>
+                                <field name="tat_work_start"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="tat_work_end" string="Tugash soati"/>
+                                <div class="text-muted" style="font-size:12px;">Masalan: 19 → 19:00</div>
+                                <field name="tat_work_end"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="tat_work_days" string="Ish kunlari"/>
+                                <div class="text-muted" style="font-size:12px;">0=Du 1=Se 2=Ch 3=Pa 4=Ju 5=Sh 6=Ya</div>
+                                <field name="tat_work_days"/>
+                            </div>
+                        </div>
+
+                        <!-- CTO -->
+                        <h3>CTO Sozlamasi</h3>
+                        <div class="row mt8 mb16">
+                            <div class="col-lg-6">
+                                <label for="tat_cto_job_title" string="CTO lavozim nomi (Job Position)"/>
+                                <div class="text-muted" style="font-size:12px;">
+                                    Employees → Job Position da ko'rsatilgan lavozim nomi
+                                </div>
+                                <field name="tat_cto_job_title"/>
+                            </div>
+                        </div>
+
+                        <!-- Stage nomlari -->
+                        <h3>Stage Nomlari</h3>
+                        <div class="text-muted mb8">
+                            Taymer logikasi ushbu stage nomlariga qarab ishlaydi
+                        </div>
+                        <div class="row mt8">
+                            <div class="col-lg-4 mb8">
+                                <label for="tat_stage_in_progress" string="In Progress"/>
+                                <div class="text-muted" style="font-size:12px;">Taymer avtomatik yonadi</div>
+                                <field name="tat_stage_in_progress"/>
+                            </div>
+                            <div class="col-lg-4 mb8">
+                                <label for="tat_stage_waiting" string="Waiting"/>
+                                <div class="text-muted" style="font-size:12px;">Taymer pauza bo'ladi</div>
+                                <field name="tat_stage_waiting"/>
+                            </div>
+                            <div class="col-lg-4 mb8">
+                                <label for="tat_stage_test" string="Test"/>
+                                <div class="text-muted" style="font-size:12px;">CTO taymeri boshlanadi</div>
+                                <field name="tat_stage_test"/>
+                            </div>
+                            <div class="col-lg-4 mb8">
+                                <label for="tat_stage_todo" string="To Do"/>
+                                <div class="text-muted" style="font-size:12px;">Qaytarish stage</div>
+                                <field name="tat_stage_todo"/>
+                            </div>
+                            <div class="col-lg-4 mb8">
+                                <label for="tat_stage_validation" string="Validation"/>
+                                <div class="text-muted" style="font-size:12px;">Tasdiqlash stage</div>
+                                <field name="tat_stage_validation"/>
+                            </div>
+                            <div class="col-lg-4 mb8">
+                                <label for="tat_stage_done" string="Done"/>
+                                <div class="text-muted" style="font-size:12px;">Tugash stage</div>
+                                <field name="tat_stage_done"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_tat_settings" model="ir.actions.act_window">
+        <field name="name">Task Auto Timer Sozlamalari</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_tat_settings_form"/>
+        <field name="target">current</field>
+        <field name="context">{'module': 'task_auto_timer'}</field>
+    </record>
+
+    <!-- Menyu -->
+    <menuitem
+        id="menu_tat_settings"
+        name="TAT Sozlamalari"
+        parent="project.menu_main_pm"
+        action="action_tat_settings"
+        sequence="70"
+    />
+</odoo>
