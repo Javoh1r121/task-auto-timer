@@ -9,7 +9,7 @@ Task Auto Timer automatically tracks time spent on project tasks based on stage 
 A dedicated CTO Test Timer records testing time and labor cost separately.
 Full reporting, CRM integration, and all settings configurable without code.
     """,
-    "author": "Sfera",
+    "author": "Javahir Odoo developer ",
     "website": "https://www.sferaacademy.uz/",
     "license": "LGPL-3",
     "price": 0,
