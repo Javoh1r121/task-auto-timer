@@ -10,7 +10,7 @@ A dedicated CTO Test Timer records testing time and labor cost separately.
 Full reporting, CRM integration, and all settings configurable without code.
     """,
     "author": "Javahir Odoo developer ",
-    "website": "https://www.sferaacademy.uz/",
+    "website": "https://github.com/Javoh1r121",
     "license": "LGPL-3",
     "price": 0,
     "currency": "USD",
